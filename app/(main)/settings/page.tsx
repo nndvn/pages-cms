@@ -66,7 +66,7 @@ export default async function Page() {
                           src={
                             user?.githubId
                               ? `https://avatars.githubusercontent.com/u/${user.githubId}`
-                              : `https://unavatar.io/${user?.email}?fallback=false`
+                              : `https://unavatar.io/${user.email}?fallback=false`
                           }
                           alt={
                             user?.githubId
