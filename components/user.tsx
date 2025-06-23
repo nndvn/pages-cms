@@ -41,7 +41,18 @@ export function User({
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon-sm" className={cn(className, "rounded-full")}>
           <Avatar className="h-8 w-8">
+            {user.githubId ? (
             <AvatarImage
+              src={`https://avatars.githubusercontent.com/u/${user.githubId}`}
+              alt={user.githubUsername}
+            />
+            ) : (
+            <AvatarImage
+              src={`https://unavatar.io/${user.email}?fallback=false}`}
+              alt={user.email}
+            />
+            )}
+            {/* <AvatarImage
               src={
                 user?.githubId
                   ? `https://avatars.githubusercontent.com/u/${user.githubId}`
@@ -52,7 +63,7 @@ export function User({
                   ? user.githubUsername
                   : user.email
               }
-            />
+            /> */}
             <AvatarFallback>{getInitialsFromName(user.githubName)}</AvatarFallback>
           </Avatar>
         </Button>
