@@ -62,14 +62,29 @@ export default async function Page() {
                     </Label>
                     <div className="col-span-3">
                       <Avatar className="h-24 w-24 rounded-md">
-                        <AvatarImage
-                          src={`https://unavatar.io/${user?.email}?fallback=false`}
+                        {user.githubId ? (
+                          <AvatarImage
+                          src={`https://avatars.githubusercontent.com/u/${user.githubId}`}
+                          alt={user.githubUsername}
+                        />
+                        ) : (
+                          <AvatarImage
+                          src={`https://unavatar.io/${user.email}?fallback=false}`}
+                          alt={user.email}
+                        />
+                        )}
+                        {/* <AvatarImage
+                          src={
+                            user?.githubId
+                              ? `https://avatars.githubusercontent.com/u/${user.githubId}`
+                              : `https://unavatar.io/${user?.email}?fallback=false`
+                          }
                           alt={
                             user?.githubId
                               ? user.githubUsername
                               : user.email
                           }
-                        />
+                        /> */}
                         <AvatarFallback className="rounded-md">{getInitialsFromName(displayName)}</AvatarFallback>
                       </Avatar>
                     </div>
