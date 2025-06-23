@@ -63,11 +63,7 @@ export default async function Page() {
                     <div className="col-span-3">
                       <Avatar className="h-24 w-24 rounded-md">
                         <AvatarImage
-                          src={
-                            user?.githubId
-                              ? `https://avatars.githubusercontent.com/u/${user.githubId}`
-                              : `https://unavatar.io/${user.email}?fallback=false`
-                          }
+                          src={`https://unavatar.io/${user?.email}?fallback=false`}
                           alt={
                             user?.githubId
                               ? user.githubUsername
